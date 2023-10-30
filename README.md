@@ -11,7 +11,6 @@ A simple web application for uploading and downloading files using Node.js and E
 - [Usage](#usage)
 - [File Upload](#file-upload)
 - [File Download](#file-download)
-- [License](#license)
 
 ## Overview
 
@@ -73,4 +72,6 @@ To upload a file, follow these steps:
 To download a file, follow these steps:
 
 1. Access the web application at `http://localhost:5000`.
-2. Click on the file you want to download.
+2. Put the name of what you want to download
+3. Just click on download!
+4. If there's no file with this name the app will tell you.
