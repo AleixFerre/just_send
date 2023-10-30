@@ -74,8 +74,3 @@ To download a file, follow these steps:
 
 1. Access the web application at `http://localhost:5000`.
 2. Click on the file you want to download.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-# just_send

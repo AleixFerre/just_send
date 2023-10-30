@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir Archivo</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-dark text-light">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Subir un archivo</h1>
+                        <form method="POST" action="/upload" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="file">Seleccionar archivo:</label>
+                                <input type="file" class="form-control-file" name="file" id="file" accept=".txt, .pdf, .jpg, .png, .zip, .rar">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Subir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
