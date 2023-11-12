@@ -1,13 +1,8 @@
-@if (isConnected) {
-  <label for="fileName">File Name:</label>
-  <input type="text" id="fileName" [(ngModel)]="fileName" />
-  <br />
-  <label for="fileContent">File Content:</label>
-  <textarea id="fileContent" [(ngModel)]="fileContent"></textarea>
-  <br />
-  <button (click)="sendFile()">Send File</button>
+<div>{{ socketService.isConnected ? "connected" : "not connected" }}</div>
+<div>{{ socketService.codeNumber }}</div>
+
+@if (socketService.isConnected) {
+  <app-room></app-room>
 } @else {
-  <label for="roomCode"> Enter Room Code:</label>
-  <input type="text" id="roomCode" [(ngModel)]="roomCode" />
-  <button (click)="connectToRoom()">Connect</button>
+  <app-home></app-home>
 }

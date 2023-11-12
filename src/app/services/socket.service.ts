@@ -1,14 +1,27 @@
-// src/app/services/socket.service.ts
 import { Injectable } from '@angular/core';
-import { Socket, SocketIoModule } from 'ngx-socket-io';
-import { SocketConfig } from './socket-config.model';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root',
-  useValue: [SocketIoModule.forRoot(SocketConfig)],
 })
 export class SocketService {
-  constructor(private socket: Socket) {}
+  isConnected = false;
+  codeNumber: string = '';
+  currentMembers: string[] = [];
+
+  constructor(private socket: Socket) {
+    socket.on('roomCode', (code: string) => {
+      this.isConnected = true;
+      this.codeNumber = code;
+    });
+    socket.on('usersInRoom', (members: string[]) => {
+      this.currentMembers = members;
+    });
+  }
+
+  createRoom(): void {
+    this.socket.emit('createRoom');
+  }
 
   joinRoom(room: string): void {
     this.socket.emit('joinRoom', room);
@@ -16,9 +29,5 @@ export class SocketService {
 
   sendFile(room: string, file: string): void {
     this.socket.emit('file', { room, file });
-  }
-
-  onFile(): any {
-    return this.socket.fromEvent('file');
   }
 }

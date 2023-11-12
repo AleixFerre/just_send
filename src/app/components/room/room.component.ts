@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SocketService } from '../../services/socket.service';
 
 @Component({
   selector: 'app-room',
   standalone: true,
-  imports: [CommonModule],
+  providers: [SocketService],
   templateUrl: './room.component.html',
   styleUrl: './room.component.scss'
 })
 export class RoomComponent {
+
+  constructor(public socketService: SocketService) {}
 
 }
